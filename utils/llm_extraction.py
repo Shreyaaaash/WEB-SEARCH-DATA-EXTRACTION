@@ -1,10 +1,17 @@
 from groq import Groq
+
 def extract_info_from_text(search_results, api_key):
     client = Groq(api_key=api_key)
     info_list = []
 
     for result in search_results:
-        prompt = f"Extract the specific information: {result['snippet']}"
+        print("Processing result:", result)  
+        
+        if 'snippet' in result:
+            prompt = f"Extract the specific information: {result['snippet']}"
+        else:
+            print("Warning: 'snippet' key not found in result. Skipping this result.")
+            continue  
         chat_completion = client.chat.completions.create(
             messages=[
                 {"role": "system", "content": "You are a helpful assistant."},
@@ -15,6 +22,3 @@ def extract_info_from_text(search_results, api_key):
         info_list.append(chat_completion.choices[0].message.content.strip())
 
     return info_list
-
-
-

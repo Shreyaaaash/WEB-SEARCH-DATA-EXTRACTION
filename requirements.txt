@@ -7,3 +7,4 @@ google-api-python-client
 openai
 langchain
 groq
+python-dotenv

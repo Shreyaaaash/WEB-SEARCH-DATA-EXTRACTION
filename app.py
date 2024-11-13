@@ -53,7 +53,7 @@ def main():
             try:
                 df = pd.read_csv(uploaded_file)
                 st.write("CSV file loaded successfully!")
-                st.dataframe(df.head())  
+                st.dataframe(df)  
             except pd.errors.ParserError:
                 st.error("Failed to parse CSV file. Please check the file format.")
             except Exception as e:
@@ -65,7 +65,7 @@ def main():
             df = load_public_google_sheet(sheet_url)
             if df is not None:
                 st.write("Google Sheet loaded successfully!")
-                st.dataframe(df.head())
+                st.dataframe(df)
 
     if df is not None and not df.empty:
         selected_column = st.selectbox("Select the column to process", df.columns.tolist())

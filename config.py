@@ -1,4 +1,7 @@
-# config.py
+import os
+from dotenv import load_dotenv
 
-SERP_API_KEY = "52a6c3044a63fbed150996698a2c87f573495288e04e4f53c7789726fcc8eff0"
-GROQ_API_KEY = "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"
+load_dotenv()
+
+SERP_API_KEY = os.getenv("SERP_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")

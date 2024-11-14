@@ -1,7 +1,7 @@
 from groq import Groq
 from config import  GROQ_API_KEY
 def extract_info_from_text(search_results, api_key):
-    client = Groq(api_key=GROQ_API_KEY)
+    client = Groq(api_key="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")
     info_list = []
 
     for result in search_results:

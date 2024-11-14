@@ -116,8 +116,14 @@ def main():
                     
                     df_results = pd.DataFrame(results)
                     df_results['extracted_info'] = df_results['extracted_info'].str.replace('\n', ' ', regex=False)  # Replace newlines with spaces for CSdf_resV
-                    
+
+                    if 'df_results' not in st.session_state:
+                            st.session_state['df_results'] = pd.DataFrame()  # Initialize with a default empty DataFrame or your data
+
+                    # Access or modify df_results
+                    df_results = st.session_state['df_results']
                     save_to_csv(df_results.to_dict(orient='records'), output_filename)  # Adjusted call
+                    
                     
                     with open(output_filename, 'rb') as f:
                         st.download_button(

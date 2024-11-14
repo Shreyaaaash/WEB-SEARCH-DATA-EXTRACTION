@@ -115,7 +115,7 @@ def main():
                     output_filename = "extraction_results.csv"
                     
                     df_results = pd.DataFrame(results)
-                    df_results['extracted_info'] = df_results['extracted_info'].str.replace('\n', ' ', regex=False)  # Replace newlines with spaces for CSV
+                    df_results['extracted_info'] = df_results['extracted_info'].str.replace('\n', ' ', regex=False)  # Replace newlines with spaces for CSdf_resV
                     
                     save_to_csv(df_results.to_dict(orient='records'), output_filename)  # Adjusted call
                     
